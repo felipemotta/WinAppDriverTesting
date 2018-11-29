@@ -4,6 +4,7 @@
     <TargetFramework>net47</TargetFramework>
     <IsPackable>false</IsPackable>
     <LangVersion>7</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

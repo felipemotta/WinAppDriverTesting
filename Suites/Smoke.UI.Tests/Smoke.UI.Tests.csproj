@@ -8,13 +8,24 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Castle.Core" Version="[4.3.1]" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="[15.9.0]" />
-    <PackageReference Include="Microsoft.WinAppDriver.Appium.WebDriver" Version="[1.0.1-Preview]" />
-    <PackageReference Include="MSTest.TestAdapter" Version="[1.4.0]" />
-    <PackageReference Include="MSTest.TestFramework" Version="[1.4.0]" />
-    <PackageReference Include="Selenium.Support" Version="[3.141.0]" />
-    <PackageReference Include="Selenium.WebDriver" Version="[3.141.0]" />
+    <PackageReference Include="FluentAssertions" Version="5.5.3" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="[3.0.1]" />
+    <PackageReference Include="Selenium.Support" Version="[3.0.1]" />
+    <PackageReference Include="Appium.WebDriver" Version="[3.0.0.1]" />
+
+    <!--<package id="Appium.WebDriver" version="3.0.0.1" targetFramework="net45" />
+    <package id="Castle.Core" version="4.0.0-beta002" targetFramework="net45" />
+    <package id="MSTest.TestAdapter" version="1.2.0" targetFramework="net45" />
+    <package id="MSTest.TestFramework" version="1.2.0" targetFramework="net45" />
+    <package id="Newtonsoft.Json" version="9.0.2-beta1" targetFramework="net45" />
+    <package id="Selenium.Support" version="3.0.1" targetFramework="net45" />
+    <package id="Selenium.WebDriver" version="3.0.1" targetFramework="net45" />-->
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="XCOPY /S /E /I /Y $(SolutionDir)Environment\SUT\KeePass-2.40 $(TargetDir)SUT" />
+  </Target>
 
 </Project>
